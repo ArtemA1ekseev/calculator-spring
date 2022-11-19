@@ -15,7 +15,7 @@ public class CalculatorServiceTest {
     @BeforeEach
     void setUp() {
         a = 5;
-        b = 5;
+        b = 0;
 
         a1 = 56;
         b1 = 7;
@@ -65,5 +65,20 @@ public class CalculatorServiceTest {
         int c1 = calculatorService.divide(a1,b1);
         int d1 = a1 / b1;
         assertEquals(c1,d1);
+    }
+
+    @Test
+    public void shouldReturnDivideNumbersError() throws IllegalArgumentException{
+        if ((a != 0 && b == 0) || ((a1 != 0 && b1 == 0)) ) {
+            throw new IllegalArgumentException("division by zero! @Test");
+        } else {
+            int c = calculatorService.divide(a, b);
+            int d = a / b;
+            assertEquals(c, d);
+
+            int c1 = calculatorService.divide(a1, b1);
+            int d1 = a1 / b1;
+            assertEquals(c1, d1);
+        }
     }
 }
