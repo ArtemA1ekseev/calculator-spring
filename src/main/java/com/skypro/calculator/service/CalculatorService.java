@@ -1,5 +1,6 @@
 package com.skypro.calculator.service;
 
+import com.skypro.calculator.exception.IllegalNumberException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,13 +17,11 @@ public class CalculatorService {
         return a * b;
     }
 
-    public int divide(int a, int b) throws IllegalArgumentException {
-        if (a != 0 && b == 0) {
-            throw new IllegalArgumentException("division by zero!");
+    public int divide(int a, int b) throws IllegalNumberException {
+        if (b == 0) {
+            throw new IllegalNumberException("division by zero!");
         } else {
             return a / b;
         }
-
     }
-
 }

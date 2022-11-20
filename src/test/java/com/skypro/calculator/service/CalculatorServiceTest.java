@@ -1,5 +1,6 @@
 package com.skypro.calculator.service;
 
+import com.skypro.calculator.exception.IllegalNumberException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -68,9 +69,9 @@ public class CalculatorServiceTest {
     }
 
     @Test
-    public void shouldReturnDivideNumbersError() throws IllegalArgumentException{
+    public void shouldReturnDivideNumbersError() throws IllegalNumberException{
         if ((a != 0 && b == 0) || ((a1 != 0 && b1 == 0)) ) {
-            throw new IllegalArgumentException("division by zero! @Test");
+            throw new IllegalNumberException("division by zero! @Test");
         } else {
             int c = calculatorService.divide(a, b);
             int d = a / b;
